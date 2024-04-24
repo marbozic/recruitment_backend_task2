@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Datetime{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <article>
+
+        <form name="datetime" action="" method="post">
+            <label for="date">Date</label><br>
+            <input type="text" id="date" name="date" placeholder="Y-m-d" value="{{ date }}">
+            
+            {% if date_error|length > 0 %}
+                <span>{{ date_error }}</span>
+            {% endif %}
+            
+            <br>
+            
+            <label for="timezone">Timezone</label><br>
+            <input type="text" id="timezone" name="timezone" placeholder="Europe/London, Asia/Tokyo, America/Lower_Princes..." value="{{ timezone }}">
+            
+            {% if timezone_error|length > 0 %}
+                <span>{{ timezone_error }}</span>
+            {% endif %}
+            
+            <br><br>
+            
+            <input type="submit" value="Submit">
+            
+            {% if text_result|length > 0 %}
+                <p>{{ text_result|raw }}</p>
+            {% endif %}
+        </form>
+
+    </article>
+</div>
+{% endblock %}
